@@ -15,7 +15,7 @@ get the code from the query string (`code=7a0c...5f5aa9bc`)
 
 and give it to get_Access_token function like sourcecode in `index.mjs` file
 
-### to run the package
+### To run the package
 ### `node index.mjs`
 
 Finally Congratulations 🎉 you will get all user info from 42 api
