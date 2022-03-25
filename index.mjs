@@ -1,37 +1,28 @@
-import Authenticator from './Authenticator.mjs'
+import Authenticator from "./Authenticator.mjs";
 
-const UID = "98a139943caaa9319f98b077445f8e84de4cb23e7668fb010a01b9c0ed20c1a4"
-const SECRET = "b34df710754fbe173bfd202cd0bfdf05fcdc4dda3f22b4d3869759r4a1e1c35f"
-const REDIRECT_URI = "http://localhost:3000"
+// you can see the attached screen shot to know where get this variables
+const UID          = "98a139943caaa7645f98b077445f8e84de4cb23e7668fb010a01b9c0ed20b8a4";
+const SECRET       = "b34df710754fbe173bfd202cd0bfdf05fcdc4dda3f22b4d76459a2a1e1c35f";
+const REDIRECT_URI = "http://localhost:3000";
 
-var app = new Authenticator(UID, SECRET, REDIRECT_URI)
+// 42 authenticator instance
+var app = new Authenticator(UID, SECRET, REDIRECT_URI);
 
-var token = app.get_Access_token("abd5e34f00b64f5f02f0986e58e214725c4b1e780f9d563c5854615df6aaadcd")
+// after send the user to 42 site to authorize the app [example of 42 site: https://api.intra.42.fr/oauth/authorize?client_id=98a139f98b077445f8e84de4cb23e7668fb010a01b9c0ed20b8a4&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code]
+// 42 redirect the user to the REDIRECT_URI (in this example is: http://localhost:3000) with the code in query string
+// like that: http://localhost:3000/?code=7a0cb1a9c5b0fd31a0eb9c5f854fc2386b1edc2179f73c76904d65f5aae4e9bc
+// get the code from the query string (code=7a0cb1a9c5b0fd31a0eb9c5f854fc2386b1edc2179f73c76904d65f5aae4e9bc)
+// and give it to get_Access_token function like below
+var token = app.get_Access_token("b5f4c9d15926e2190bb1c746c34250caef7cf50f3e13ba5b118beb9c94b2c0c2");
 
 token.then((data) => {
-	console.log(data)
-})
-
-var isValid = app.is_valid_token("5a76ab8b2c91613e76346d8541589b64d3fd90486608fac828f7ed75fcca5d1c")
-isValid.then((data) => {
-	console.log(data)
-})
-
-
-var getUserData = app.get_user_data("5a76ab8b2c91513e76346d3441589b64d3dd90489708fac828f7ed75fcca5d1c")
-getUserData.then((data) => {
-	console.log(data)
-})
-
-var test = {
-    'access_token':
-    'c7572b89d479c4ea3cd9b5de11540c3f54be8b861d75610fe65084697c26b284',
-    'token_type': 'bearer',
-    'expires_in': 7200,
-    'refresh_token':
-    '6132a231350122da051f0a09c5c7598040f40751f56952cad96077b70156ba5b',
-    'scope': 'public',
-    'created_at': 1644261471
-}
-
-
+	// get the acces token of the user
+	console.log("======================== auth user Data =========================");
+	console.log(data);
+	console.log("========================= 42 user data ==========================");
+	// get the user info from 42 api
+	app.get_user_data(data.access_token).then((data) => {
+		console.log(data);
+		console.log("=============================================================");
+	});
+});
