@@ -1,6 +1,30 @@
 {
-  "dependencies": {
-    "node-fetch": "^3.2.3"
-  },
-  "type": "module"
+	"name": "api42client",
+	"version": "1.0.2",
+	"dependencies": {
+		"node-fetch": "^3.2.3"
+	},
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kirwa-KO/API42Client"
+	  },
+	  "keywords": [
+		"ft_transcendence",
+		"intra42",
+		"42api",
+		"api42",
+		"api42client",
+		"connect 42 api", 
+		"connect to 42", 
+		"1337",
+		"42",
+		"node-fetch",
+		"fetch 42 api",
+		"fetch 42"
+	],
+	  "author": "kirwa-KO",
+	  "license": "MIT",
+	  "description": "API42Client is a class that help you interacte with 42 school api and get users data",
+	  "main": "index.mjs"
 }
