@@ -70,8 +70,21 @@ token.then((data) => {
 3. get the code from the query string (`code=7a0c...5f5aa9bc`)
 4. give it to get_Access_token function like sourcecode in `index.mjs` file
 
+## Running
+
+```bash
+node run.js
+```
+
 Finally Congratulations 🎉 you will get all user info from 42 api
 
 ## License
 
   [MIT](LICENSE)
+
+[npm-downloads-image]: https://badgen.net/npm/dm/api42client
+[npm-downloads-url]: https://npmcharts.com/compare/api42client?minimal=true
+[npm-install-size-image]: https://badgen.net/packagephobia/install/express
+[npm-install-size-url]: https://packagephobia.com/result?p=api42client
+[npm-url]: https://www.npmjs.com/package/api42client
+[npm-version-image]: https://badgen.net/npm/v/api42client
