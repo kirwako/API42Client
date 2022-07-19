@@ -1,4 +1,4 @@
-import Authenticator from "./Authenticator.mjs";
+import Authenticator from "api42client";
 
 // you can see the attached screen shot to know where get this variables
 const UID          = "98a139943caaa7645f98b077445f8e84de4cb23e7668fb010a01b9c0ed20b8a4";
@@ -13,7 +13,7 @@ var app = new Authenticator(UID, SECRET, REDIRECT_URI);
 // like that: http://localhost:3000/?code=7a0cb1a9c5b0fd31a0eb9c5f854fc2386b1edc2179f73c76904d65f5aae4e9bc
 // get the code from the query string (code=7a0cb1a9c5b0fd31a0eb9c5f854fc2386b1edc2179f73c76904d65f5aae4e9bc)
 // and give it to get_Access_token function like below
-var token = app.get_Access_token("b5f4c9d15926e2190bb1c746c34250caef7cf50f3e13ba5b118beb9c94b2c0c2");
+var token = app.get_Access_token("85a7e9c0bdbb53d6583064846c087e5e499b6b523f0602c46d1d422078feaf77");
 
 token.then((data) => {
 	// get the acces token of the user
