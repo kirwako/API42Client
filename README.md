@@ -81,6 +81,13 @@ Finally Congratulations 🎉 you will get all user info from 42 api
 ## License
 
   [MIT](LICENSE)
+  
+## Support
+#### This package costs me time to make and maintain every time.
+[I am very 😀 about every coffee!]
+
+<a href="https://www.buymeacoffee.com/imranbaali" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+
 
 [npm-downloads-image]: https://badgen.net/npm/dm/api42client
 [npm-downloads-url]: https://npmcharts.com/compare/api42client?minimal=true
