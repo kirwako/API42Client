@@ -84,7 +84,7 @@ Finally Congratulations 🎉 you will get all user info from 42 api
 
 [npm-downloads-image]: https://badgen.net/npm/dm/api42client
 [npm-downloads-url]: https://npmcharts.com/compare/api42client?minimal=true
-[npm-install-size-image]: https://badgen.net/packagephobia/install/express
+[npm-install-size-image]: https://badgen.net/packagephobia/install/api42client
 [npm-install-size-url]: https://packagephobia.com/result?p=api42client
 [npm-url]: https://www.npmjs.com/package/api42client
 [npm-version-image]: https://badgen.net/npm/v/api42client
