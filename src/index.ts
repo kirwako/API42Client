@@ -1,6 +1,7 @@
 import TokenType from "./types/TokenType";
 import TokenErrorType from "./types/TokenErrorType";
 import UserType from "./types/UserType";
+import nodeFetch from "node-fetch";
 
 var GET_ACCESS_TOKEN_URL = "https://api.intra.42.fr/oauth/token";
 var TEST_ACCESS_TOKEN = "https://api.intra.42.fr/oauth/token/info";
@@ -39,7 +40,7 @@ class Authenticator {
 			code: code,
 			redirect_uri: this.redirect_uri,
 		};
-		var res = await fetch(GET_ACCESS_TOKEN_URL, {
+		var res = await nodeFetch(GET_ACCESS_TOKEN_URL, {
 			method: "POST",
 			body: JSON.stringify(payload),
 			headers: {
@@ -54,7 +55,7 @@ class Authenticator {
 			Authorization: `Bearer ${access_token}`,
 		};
 
-		var res = await fetch(TEST_ACCESS_TOKEN, {
+		var res = await nodeFetch(TEST_ACCESS_TOKEN, {
 			method: "GET",
 			headers: header,
 		});
@@ -66,7 +67,7 @@ class Authenticator {
 			Authorization: `Bearer ${access_token}`,
 		};
 
-		var res = await fetch(GET_USER_DATA_URL, {
+		var res = await nodeFetch(GET_USER_DATA_URL, {
 			method: "GET",
 			headers: header,
 		});

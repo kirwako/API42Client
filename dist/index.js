@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var node_fetch_1 = require("node-fetch");
 var GET_ACCESS_TOKEN_URL = "https://api.intra.42.fr/oauth/token";
 var TEST_ACCESS_TOKEN = "https://api.intra.42.fr/oauth/token/info";
 var GET_USER_DATA_URL = "https://api.intra.42.fr/v2/me";
@@ -59,7 +60,7 @@ var Authenticator = /** @class */ (function () {
                             code: code,
                             redirect_uri: this.redirect_uri,
                         };
-                        return [4 /*yield*/, fetch(GET_ACCESS_TOKEN_URL, {
+                        return [4 /*yield*/, (0, node_fetch_1.default)(GET_ACCESS_TOKEN_URL, {
                                 method: "POST",
                                 body: JSON.stringify(payload),
                                 headers: {
@@ -83,7 +84,7 @@ var Authenticator = /** @class */ (function () {
                         header = {
                             Authorization: "Bearer ".concat(access_token),
                         };
-                        return [4 /*yield*/, fetch(TEST_ACCESS_TOKEN, {
+                        return [4 /*yield*/, (0, node_fetch_1.default)(TEST_ACCESS_TOKEN, {
                                 method: "GET",
                                 headers: header,
                             })];
@@ -103,7 +104,7 @@ var Authenticator = /** @class */ (function () {
                         header = {
                             Authorization: "Bearer ".concat(access_token),
                         };
-                        return [4 /*yield*/, fetch(GET_USER_DATA_URL, {
+                        return [4 /*yield*/, (0, node_fetch_1.default)(GET_USER_DATA_URL, {
                                 method: "GET",
                                 headers: header,
                             })];

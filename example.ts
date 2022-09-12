@@ -25,4 +25,6 @@ token.then((data) => {
 		console.log(data);
 		console.log("=============================================================");
 	});
+}).catch((err) => {
+	console.log(err);
 });
