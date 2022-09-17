@@ -7,6 +7,21 @@ var GET_ACCESS_TOKEN_URL = "https://api.intra.42.fr/oauth/token";
 var TEST_ACCESS_TOKEN = "https://api.intra.42.fr/oauth/token/info";
 var GET_USER_DATA_URL = "https://api.intra.42.fr/v2/me";
 
+const RESET_BOLD = "\u001b[22m"
+const BOLD = "\u001b[1m"
+const FG_GREEN = "\x1b[32m";
+const RESET_COLOR = "\x1b[0m";
+const FG_RED = "\x1b[31m";
+const FG_YELLOW = "\x1b[33m";
+
+const BOLD_FG_GREEN = `${BOLD}${FG_GREEN}`;
+const RESET_BOLD_FG_GREEN = `${RESET_BOLD}${RESET_COLOR}`;
+const BOLD_FG_RED = `${BOLD}${FG_RED}`;
+const RESET_BOLD_FG_RED = `${RESET_BOLD}${RESET_COLOR}`;
+const BOLD_FG_YELLOW = `${BOLD}${FG_YELLOW}`;
+const RESET_BOLD_FG_YELLOW = `${RESET_BOLD}${RESET_COLOR}`;
+
+
 var description = `
 		Authenticator
 		
@@ -47,7 +62,16 @@ class Authenticator {
 				"Content-Type": "application/json",
 			},
 		});
-		return await res.json();
+		
+		if (res.ok) {
+			return await res.json();
+		}
+
+		throw new Error(`${BOLD_FG_RED}Error while getting access token${RESET_BOLD_FG_RED}
+       ${BOLD_FG_YELLOW}Please be sure that you use the right:${RESET_BOLD_FG_YELLOW}
+         - uid, secret and redirect_uri
+         - and the right code getted from the 42 API
+`);
 	}
 
 	async is_valid_token(access_token: string): Promise<boolean> {
@@ -71,7 +95,11 @@ class Authenticator {
 			method: "GET",
 			headers: header,
 		});
-		return await res.json();
+		if (res.ok) {
+			return await res.json();
+		}
+		throw new Error(`${BOLD_FG_RED}Error while getting user data${RESET_BOLD_FG_RED}
+		${BOLD_FG_YELLOW}Please be sure that you have access to user data on 42 api${RESET_BOLD_FG_YELLOW}`);
 	}
 }
 

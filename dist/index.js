@@ -40,6 +40,18 @@ var node_fetch_1 = require("node-fetch");
 var GET_ACCESS_TOKEN_URL = "https://api.intra.42.fr/oauth/token";
 var TEST_ACCESS_TOKEN = "https://api.intra.42.fr/oauth/token/info";
 var GET_USER_DATA_URL = "https://api.intra.42.fr/v2/me";
+var RESET_BOLD = "\u001b[22m";
+var BOLD = "\u001b[1m";
+var FG_GREEN = "\x1b[32m";
+var RESET_COLOR = "\x1b[0m";
+var FG_RED = "\x1b[31m";
+var FG_YELLOW = "\x1b[33m";
+var BOLD_FG_GREEN = "".concat(BOLD).concat(FG_GREEN);
+var RESET_BOLD_FG_GREEN = "".concat(RESET_BOLD).concat(RESET_COLOR);
+var BOLD_FG_RED = "".concat(BOLD).concat(FG_RED);
+var RESET_BOLD_FG_RED = "".concat(RESET_BOLD).concat(RESET_COLOR);
+var BOLD_FG_YELLOW = "".concat(BOLD).concat(FG_YELLOW);
+var RESET_BOLD_FG_YELLOW = "".concat(RESET_BOLD).concat(RESET_COLOR);
 var description = "\n\t\tAuthenticator\n\t\t\n\t\tThe Authenticator make you connect to the 42 School API with the Authorization Code flow,\n\t\tthis step for geting the Access-token That access token is used by the client to make API calls.\n\t\t\n\t\tOptions:\n\t\t- \"uid\"      \t\t:\tyour 42 application's UID\n\t\t- \"secret\"  \t\t:\tyour 42 application's SECRET\n\t\t- \"redirect_uri\"  : \tURL to which 42 will redirect the user after granting authorization\n\t";
 var Authenticator = /** @class */ (function () {
     function Authenticator(uid, secret, redirect_uri) {
@@ -69,8 +81,10 @@ var Authenticator = /** @class */ (function () {
                             })];
                     case 1:
                         res = _a.sent();
+                        if (!res.ok) return [3 /*break*/, 3];
                         return [4 /*yield*/, res.json()];
                     case 2: return [2 /*return*/, _a.sent()];
+                    case 3: throw new Error("".concat(BOLD_FG_RED, "Error while getting access token").concat(RESET_BOLD_FG_RED, "\n       ").concat(BOLD_FG_YELLOW, "Please be sure that you use the right:").concat(RESET_BOLD_FG_YELLOW, "\n         - uid, secret and redirect_uri\n         - and the right code getted from the 42 API\n"));
                 }
             });
         });
@@ -110,8 +124,10 @@ var Authenticator = /** @class */ (function () {
                             })];
                     case 1:
                         res = _a.sent();
+                        if (!res.ok) return [3 /*break*/, 3];
                         return [4 /*yield*/, res.json()];
                     case 2: return [2 /*return*/, _a.sent()];
+                    case 3: throw new Error("".concat(BOLD_FG_RED, "Error while getting user data").concat(RESET_BOLD_FG_RED, "\n\t\t").concat(BOLD_FG_YELLOW, "Please be sure that you have access to user data on 42 api").concat(RESET_BOLD_FG_YELLOW));
                 }
             });
         });

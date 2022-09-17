@@ -13,7 +13,7 @@ var app = new Authenticator(UID, SECRET, REDIRECT_URI);
 // like that: http://localhost:3000/?code=7a0cb1a9c5b0fd31a0eb9c5f854fc2386b1edc2179f73c76904d65f5aae4e9bc
 // get the code from the query string (code=7a0cb1a9c5b0fd31a0eb9c5f854fc2386b1edc2179f73c76904d65f5aae4e9bc)
 // and give it to get_Access_token function like below
-var token = app.get_Access_token("85a7e9c0bdbb53d6583064846c087e5e499b6b523f0602c46d1d422078feaf77");
+var token = app.get_Access_token("1c18ed11e162f51607e07fb80477f2c85375db8209a3865634cfc5f0e0fedc1a");
 
 token.then((data) => {
 	// get the acces token of the user
